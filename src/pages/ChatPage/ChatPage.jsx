@@ -7,7 +7,7 @@ import InputField from "../../components/InputField/InputField";
 import "./ChatPage.styles.css";
 
 const ChatPage = ({ user }) => {
-  const { id, name } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [messageList, setMessageList] = useState([]);
   const [message, setMessage] = useState("");
@@ -19,6 +19,7 @@ const ChatPage = ({ user }) => {
     });
 
     socket.emit("joinRoom", id, (res) => {
+      // console.log(id);
       if (res && res.ok) {
         console.log("successfully join", res);
       } else {
@@ -51,7 +52,6 @@ const ChatPage = ({ user }) => {
           <Button onClick={leaveRoom} className="back-button">
             ←
           </Button>
-          <div className="nav-user">{name}</div>
         </nav>
         <div>
           {messageList.length > 0 ? (
