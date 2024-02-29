@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import socket from "../../server";
 import { Button } from "@mui/base/Button";
 import MessageContainer from "../../components/MessageContainer/MessageContainer";
 import InputField from "../../components/InputField/InputField";
-import "./ChatPage.styles.css";
+import {
+  ChatPageContainer,
+  ChatPageNav,
+  LeaveRoomBtn,
+  ChatPageWrapper,
+  RoomName,
+} from "./styles";
 
 const ChatPage = ({ user }) => {
-  const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { id } = useParams();
+  const queryParams = new URLSearchParams(location.search);
+  const roomname = queryParams.get("roomname");
+
   const [messageList, setMessageList] = useState([]);
   const [message, setMessage] = useState("");
 
@@ -19,7 +29,6 @@ const ChatPage = ({ user }) => {
     });
 
     socket.emit("joinRoom", id, (res) => {
-      // console.log(id);
       if (res && res.ok) {
         console.log("successfully join", res);
       } else {
@@ -41,30 +50,28 @@ const ChatPage = ({ user }) => {
 
   const leaveRoom = () => {
     socket.emit("leaveRoom", user, (res) => {
-      if (res.ok) navigate("/"); // 다시 채팅방 리스트 페이지로 돌아감
+      if (res.ok) navigate("/rooms"); // 다시 채팅방 리스트 페이지로 돌아감
     });
   };
 
   return (
-    <div>
-      <div className="App">
-        <nav>
-          <Button onClick={leaveRoom} className="back-button">
-            ←
-          </Button>
-        </nav>
-        <div>
-          {messageList.length > 0 ? (
-            <MessageContainer messageList={messageList} user={user} />
-          ) : null}
-        </div>
+    <ChatPageContainer>
+      <ChatPageWrapper>
+        <ChatPageNav>
+          <LeaveRoomBtn onClick={leaveRoom}>←</LeaveRoomBtn>
+          <RoomName>{roomname}</RoomName>
+        </ChatPageNav>
+
+        {messageList.length > 0 ? (
+          <MessageContainer messageList={messageList} user={user} />
+        ) : null}
         <InputField
           message={message}
           setMessage={setMessage}
           sendMessage={sendMessage}
         />
-      </div>
-    </div>
+      </ChatPageWrapper>
+    </ChatPageContainer>
   );
 };
 

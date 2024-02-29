@@ -1,25 +1,29 @@
 import React from "react";
-import { Input } from "@mui/base/Input";
-import { Button } from "@mui/base/Button";
-import "./InputField.css";
+import {
+  InputContainer,
+  PlusButton,
+  InputForm,
+  InputArea,
+  SendButton,
+} from "./styles";
+
 export const InputField = ({ message, setMessage, sendMessage }) => {
   return (
-    <div className="input-area">
-      <div className="plus-button">+</div>
-      <form onSubmit={sendMessage} className="input-container">
-        <Input
+    <InputContainer>
+      <PlusButton>+</PlusButton>
+
+      <InputForm onSubmit={sendMessage}>
+        <InputArea
           placeholder="Type in here…"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-          multiline={false}
           rows={1}
         />
-
-        <Button disabled={message === ""} type="submit" className="send-button">
+        <SendButton disabled={message === ""} type="submit">
           전송
-        </Button>
-      </form>
-    </div>
+        </SendButton>
+      </InputForm>
+    </InputContainer>
   );
 };
 

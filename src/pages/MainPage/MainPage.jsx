@@ -1,6 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import socket from "../../server";
+import SignUpModal from "../../components/SignUpModal/SignUpModal";
+import {
+  MainPageContainer,
+  MainPageWrapper,
+  MainPageTitle,
+  LoginForm,
+  LoginLabel,
+  LoginInput,
+  LoginP,
+  LoginBtn,
+  SignUpBtn,
+  Title,
+  SignUpContainer,
+} from "./styles";
 
 function MainPage({ setUser }) {
   const navigate = useNavigate();
@@ -8,6 +22,8 @@ function MainPage({ setUser }) {
   const [password, setPassword] = useState("");
   const [regisName, setRegisName] = useState("");
   const [regisPassword, setRegisPassword] = useState("");
+
+  const [regisModal, setRegisModal] = useState(false);
 
   // 로그인
   const handleLogin = (e) => {
@@ -23,66 +39,56 @@ function MainPage({ setUser }) {
     });
   };
 
-  // 회원가입
-  const handleRegister = (e) => {
-    e.preventDefault();
-    socket.emit("register", regisName, regisPassword, (res) => {
-      console.log("res : ", res);
-      if (res?.ok) {
-        navigate(`/`);
-        alert("회원가입 완료! 로그인을 시도해주세요");
-      } else {
-        alert("회원가입에 실패했습니다. 다시 시도해주세요.");
-      }
-    });
+  const closeModal = () => {
+    setRegisModal(false);
   };
 
   return (
-    <div>
-      <h1>회원가입 및 로그인</h1>
-      <form onSubmit={handleLogin}>
-        <label>
-          이름:
-          <input
-            type="text"
-            value={userName}
-            style={{ border: "1px solid black" }}
-            onChange={(e) => setUserName(e.target.value)}
-          />
-        </label>
-        <label>
-          비밀번호:
-          <input
-            type="password"
-            value={password}
-            style={{ border: "1px solid black" }}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button type="submit">로그인</button>
-      </form>
-      <form onSubmit={handleRegister}>
-        <label>
-          이름:
-          <input
-            type="text"
-            value={regisName}
-            style={{ border: "1px solid black" }}
-            onChange={(e) => setRegisName(e.target.value)}
-          />
-        </label>
-        <label>
-          비밀번호:
-          <input
-            type="password"
-            value={regisPassword}
-            style={{ border: "1px solid black" }}
-            onChange={(e) => setRegisPassword(e.target.value)}
-          />
-        </label>
-        <button type="submit">회원가입</button>
-      </form>
-    </div>
+    <MainPageContainer>
+      <MainPageWrapper>
+
+        <MainPageTitle>
+          <Title>사내 실시간 회의 시스템</Title>
+        </MainPageTitle>
+
+        <LoginForm onSubmit={handleLogin}>
+          <LoginLabel>
+            <LoginP>이름</LoginP>
+            <LoginInput
+              type="text"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </LoginLabel>
+          <LoginLabel>
+            <LoginP>비밀번호</LoginP>
+            <LoginInput
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </LoginLabel>
+          <LoginBtn type="submit">로그인</LoginBtn>
+        </LoginForm>
+
+        <SignUpContainer>
+          <SignUpBtn
+            onClick={() => {
+              setRegisModal(true);
+            }}
+          >
+            회원가입
+          </SignUpBtn>
+          {regisModal && (
+            <SignUpModal
+              regisModal={regisModal}
+              setRegisModal={setRegisModal}
+            ></SignUpModal>
+          )}
+        </SignUpContainer>
+        
+      </MainPageWrapper>
+    </MainPageContainer>
   );
 }
 

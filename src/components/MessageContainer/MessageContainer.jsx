@@ -1,30 +1,46 @@
-import React, { useState } from "react";
-import "./MessageContainer.css";
-import { Container } from "@mui/system";
+import React, { useState, useRef, useEffect } from "react";
+import {
+  MessageWrapper,
+  MessageAreaContainer,
+  SystemMessageContainer,
+  SystemMessage,
+  MyMessageContainer,
+  YourMessageContainer,
+  ProfileImage,
+  YourMessage,
+  MyMessage,
+  UserName,
+  UserContainer,
+} from "./styles";
 
 export const MessageContainer = ({ messageList, user }) => {
-  console.log("list", messageList);
-  console.log("user", user);
+  const messageEndRef = useRef(null);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messageList]);
+
+  const scrollToBottom = () => {
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <div>
+    <MessageWrapper>
       {messageList.map((message, index) => {
         const uniqueKey = message._id || index;
         return (
-          <Container key={uniqueKey} className="message-container">
+          <MessageAreaContainer key={uniqueKey}>
             {message.user.name === "system" ? (
-              <div className="system-message-container">
-                <p className="system-message">{message.chat}</p>
-              </div>
+              <SystemMessageContainer>
+                <SystemMessage>{message.chat}</SystemMessage>
+              </SystemMessageContainer>
             ) : message.user.name === user ? (
-              <div className="my-message-container">
-                <div className="my-message">{message.chat}</div>
-              </div>
+              <MyMessageContainer>
+                <MyMessage>{message.chat}</MyMessage>
+              </MyMessageContainer>
             ) : (
-              <div className="your-message-container">
-                <img
-                  src="/profile.jpeg"
-                  className="profile-image"
+              <YourMessageContainer>
+                <UserContainer
                   style={
                     (index === 0
                       ? { visibility: "visible" }
@@ -33,17 +49,21 @@ export const MessageContainer = ({ messageList, user }) => {
                       ? { visibility: "visible" }
                       : { visibility: "hidden" }
                   }
-                />
-                <p style={{ fontSize: "12px", marginRight: "8px" }}>
-                  {message.user.name}
-                </p>
-                <div className="your-message">{message.chat}</div>
-              </div>
+                >
+                  <ProfileImage src="/profile.jpeg" />
+                  <UserName style={{ fontSize: "12px", marginRight: "8px" }}>
+                    {message.user.name}
+                  </UserName>
+                </UserContainer>
+
+                <YourMessage>{message.chat}</YourMessage>
+              </YourMessageContainer>
             )}
-          </Container>
+          </MessageAreaContainer>
         );
       })}
-    </div>
+      <div ref={messageEndRef}></div>
+    </MessageWrapper>
   );
 };
 
