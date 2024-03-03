@@ -27,12 +27,27 @@ export const RoomNav = styled.div`
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const RoomsTitle = styled.p`
   max-height: 100%;
   padding-left: 5%;
+`;
+export const AddRoomBtn = styled.button`
+  max-width: 2em; /* 수정: 너비 조정 */
+  max-height: 2em; /* 수정: 높이 조정 */
+  font-size: 1em; /* 수정: 폰트 크기 조정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 4%;
+  border-radius: 50%;
+  border: none;
+  background-color: lightblue;
+  color: white;
+  cursor: pointer;
 `;
 
 export const RoomLists = styled.div`

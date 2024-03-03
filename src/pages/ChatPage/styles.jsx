@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const ChatPageContainer = styled.div`
   display: flex;
   height: 100vh;
-  width: 100%
+  width: 100%;
   margin: 0px !important;
   align-items: center;
   justify-content: center;
@@ -29,11 +29,10 @@ export const ChatPageContainer = styled.div`
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-
 `;
 
 export const ChatPageWrapper = styled.div`
-  width: 36rem;
+  width: 32%;
   display: flex;
   flex-direction: column;
   background-color: #e4f1ff;
@@ -42,13 +41,20 @@ export const ChatPageWrapper = styled.div`
   height: 80%;
   position: relative;
   border: 2px solid #4f709c;
+  border-radius: 4px;
 `;
 
 export const ChatPageNav = styled.nav`
   display: flex;
   align-items: center;
-  border-bottom: 1px solid black;
   height: 8vh;
+  background-color: #86b6f6;
+  justify-content: space-between;
+`;
+
+export const LeaveAndRoomname = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export const LeaveRoomBtn = styled.button`
@@ -65,4 +71,14 @@ export const LeaveRoomBtn = styled.button`
 export const RoomName = styled.p`
   font-size: 16px;
   font-weight: bold;
+`;
+
+export const DeleteRoomBtn = styled.button`
+  margin-right: 1em;
+  max-width: 3em;
+  max-height: 2em;
+  font-size: 1em;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
 `;

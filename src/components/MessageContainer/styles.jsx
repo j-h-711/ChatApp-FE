@@ -48,7 +48,8 @@ export const UserContainer = styled.div`
 `;
 
 export const MyMessage = styled.div`
-  background-color: #f7e600;
+  background-color: #4f709c;
+  color: white;
   border-radius: 8px;
   padding: 8px;
   marign-top: 4px;

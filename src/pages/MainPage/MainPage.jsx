@@ -16,7 +16,7 @@ import {
   SignUpContainer,
 } from "./styles";
 
-function MainPage({ setUser }) {
+function MainPage({ setUser, setUserId }) {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +32,7 @@ function MainPage({ setUser }) {
       console.log("res : ", res);
       if (res?.ok) {
         setUser(userName);
+        setUserId(res.data._id);
         navigate(`/rooms`);
       } else {
         alert("로그인에 실패했습니다. 다시 시도해주세요.");
@@ -46,7 +47,6 @@ function MainPage({ setUser }) {
   return (
     <MainPageContainer>
       <MainPageWrapper>
-
         <MainPageTitle>
           <Title>사내 실시간 회의 시스템</Title>
         </MainPageTitle>
@@ -86,7 +86,6 @@ function MainPage({ setUser }) {
             ></SignUpModal>
           )}
         </SignUpContainer>
-        
       </MainPageWrapper>
     </MainPageContainer>
   );

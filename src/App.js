@@ -8,20 +8,29 @@ import "./App.css";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [userId, setUserId] = useState("");
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
     socket.on("rooms", (res) => {
       setRooms(res);
     });
-  }, [user]);
+  }, [user, rooms]);
 
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<MainPage setUser={setUser} />} />
-        <Route exact path="/room/:id" element={<ChatPage user={user} />} />
+        <Route
+          exact
+          path="/room/:id"
+          element={<ChatPage user={user} rooms={rooms} userId={userId} />}
+        />
         <Route exact path="/rooms" element={<RoomListPage rooms={rooms} />} />
+        <Route
+          exact
+          path="/"
+          element={<MainPage setUser={setUser} setUserId={setUserId} />}
+        />
       </Routes>
     </Router>
   );
