@@ -43,10 +43,14 @@ export const LoginContainer = styled.div`
 `;
 
 export const NameLabel = styled.label`
-  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   height: 40%;
 `;
 export const PassLabel = styled.label`
+  display: flex;
+  flex-direction: column;
   height: 40%;
 `;
 
