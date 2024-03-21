@@ -6,7 +6,11 @@ export const MessageWrapper = styled.div`
   margin-left: 1rem;
   height: 100%;
   margin: 0 !important;
-  max-height: 64vh;
+  height: 63vh;
+
+  @media screen and (max-width: 768px) {
+    height: 84vh;
+  }
 
   overflow-y: auto;
 `;

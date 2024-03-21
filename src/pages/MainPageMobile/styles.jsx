@@ -12,16 +12,11 @@ export const MainPageContainer = styled.div`
 export const LoginForm = styled.form`
   border-radius: 8px;
   border: 4px solid #b4d4ff;
-  height: 50%;
-  width: 40%;
+  height: 100vh;
+  width: 100%;
   background-color: #eef5ff;
   margin-left: auto;
   margin-right: auto;
-
-  // @media screen and (max-width: 768px) {
-  //   width: 80%;
-  //   height: 52%;
-  // }
 `;
 
 export const MainPageTitle = styled.div`
@@ -32,26 +27,23 @@ export const MainPageTitle = styled.div`
 
 export const Title = styled.p`
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   text-align: center;
   align-items: center;
   display: flex;
   justify-content: center;
   margin: 0px !important;
   height: 100%;
-
-  // @media screen and (max-width: 768px) {
-  //   font-size: 1rem;
-  // }
 `;
 
 export const LoginContainer = styled.div`
-  height: 50%;
+  height: 60%;
   display: flex;
   flex-direction: column;
 `;
 
 export const NameLabel = styled.label`
+  margin-top: 5%;
   height: 40%;
 `;
 export const PassLabel = styled.label`
@@ -61,14 +53,15 @@ export const PassLabel = styled.label`
 export const LoginP = styled.p`
   width: 70%;
   margin: 3% auto 1% auto;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: bold;
   display: flex;
   align-items: center;
 `;
 
 export const LoginInput = styled.input`
   width: 70%;
-  height: 24px;
+  height: 30px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 4px;
@@ -80,11 +73,11 @@ export const LoginInput = styled.input`
     outline: none;
     border: 2px solid #86b6f6;
   }
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 export const LoginBtnContainer = styled.div`
-  height: 15%;
+  height: 10%;
   wdith: 100%;
   display: flex;
   align-items: center;
@@ -104,7 +97,7 @@ export const LoginBtn = styled.button`
 `;
 
 export const SignUpContainer = styled.div`
-  height: 15%;
+  height: 10%;
   width: 100%;
   display: flex;
   align-items: center;

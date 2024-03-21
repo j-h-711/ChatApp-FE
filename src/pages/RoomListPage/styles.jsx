@@ -7,10 +7,16 @@ export const RoomListContainer = styled.div`
   background-color: #eef5ff;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
+  width: 50%;
   position: relative;
   border-radius: 8px;
   border: 4px solid #b4d4ff;
+
+  @media screen and (max-width: 768px) {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 export const RoomWrapper = styled.div`
@@ -36,9 +42,9 @@ export const RoomsTitle = styled.p`
   padding-left: 5%;
 `;
 export const AddRoomBtn = styled.button`
-  max-width: 2em; /* 수정: 너비 조정 */
-  max-height: 2em; /* 수정: 높이 조정 */
-  font-size: 1em; /* 수정: 폰트 크기 조정 */
+  max-width: 2em;
+  max-height: 2em;
+  font-size: 1em;
   display: flex;
   justify-content: center;
   align-items: center;

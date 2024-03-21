@@ -12,16 +12,16 @@ export const MainPageContainer = styled.div`
 export const LoginForm = styled.form`
   border-radius: 8px;
   border: 4px solid #b4d4ff;
-  height: 50%;
+  height: 40%;
   width: 40%;
   background-color: #eef5ff;
   margin-left: auto;
   margin-right: auto;
 
-  // @media screen and (max-width: 768px) {
-  //   width: 80%;
-  //   height: 52%;
-  // }
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    height: 52%;
+  }
 `;
 
 export const MainPageTitle = styled.div`
@@ -40,9 +40,9 @@ export const Title = styled.p`
   margin: 0px !important;
   height: 100%;
 
-  // @media screen and (max-width: 768px) {
-  //   font-size: 1rem;
-  // }
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const LoginContainer = styled.div`
@@ -52,6 +52,7 @@ export const LoginContainer = styled.div`
 `;
 
 export const NameLabel = styled.label`
+  margin-top: 5%;
   height: 40%;
 `;
 export const PassLabel = styled.label`

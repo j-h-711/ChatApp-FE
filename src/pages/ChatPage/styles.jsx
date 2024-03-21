@@ -32,7 +32,7 @@ export const ChatPageContainer = styled.div`
 `;
 
 export const ChatPageWrapper = styled.div`
-  width: 32%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   background-color: #e4f1ff;
@@ -42,6 +42,11 @@ export const ChatPageWrapper = styled.div`
   position: relative;
   border: 2px solid #4f709c;
   border-radius: 4px;
+
+  @media screen and (max-width: 768px) {
+    height: 100vh;
+    width: 100%;
+  }
 `;
 
 export const ChatPageNav = styled.nav`

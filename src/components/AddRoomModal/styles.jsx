@@ -20,6 +20,11 @@ export const AddRoomWrapper = styled.div`
   background-color: white;
   border: 3px solid #86b6f6 !important;
   border-radius: 4px;
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    height: 30%;
+  }
 `;
 
 export const AddRoomForm = styled.form`
@@ -55,7 +60,7 @@ export const RoomP = styled.p`
 `;
 
 export const RoomNameInput = styled.input`
-  min-width: 80%;
+  min-width: 100%;
   display: flex;
   margin: 0 auto;
   align-items: center;
@@ -65,6 +70,9 @@ export const RoomNameInput = styled.input`
     outline: none;
     border: 1px solid blue !important;
   }
+  padding: 0;
+  box-sizing: border-box;
+  padding: 3px;
 `;
 
 export const SubmitBtn = styled.button`

@@ -29,6 +29,7 @@ const RoomListPage = ({ rooms }) => {
 
   return (
     <RoomListContainer>
+
       <RoomWrapper>
         <RoomNav>
           <RoomsTitle>회의실 ▼</RoomsTitle>
@@ -56,6 +57,7 @@ const RoomListPage = ({ rooms }) => {
           ></AddRoomModal>
         )}
       </RoomWrapper>
+      
     </RoomListContainer>
   );
 };

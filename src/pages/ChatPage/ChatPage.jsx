@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import socket from "../../server";
-import { Button } from "@mui/base/Button";
 import MessageContainer from "../../components/MessageContainer/MessageContainer";
 import InputField from "../../components/InputField/InputField";
 import {
@@ -50,6 +49,15 @@ const ChatPage = ({ user, rooms, userId }) => {
         console.log("fail to join", res);
       }
     });
+
+    const unblock = () => {
+      // 이전 페이지로 이동하는 경우
+      leaveRoom();
+    };
+
+    window.addEventListener("popstate", unblock);
+
+    return () => window.removeEventListener("popstate", unblock);
   }, []);
 
   const sendMessage = (event) => {

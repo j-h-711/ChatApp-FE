@@ -19,7 +19,7 @@ import {
   LoginContainer,
 } from "./styles";
 
-function MainPage({ setUser, setUserId }) {
+function MainPageMobile({ setUser, setUserId }) {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -95,10 +95,9 @@ function MainPage({ setUser, setUserId }) {
             ></SignUpModal>
           )}
         </SignUpContainer>
-        
       </LoginForm>
     </MainPageContainer>
   );
 }
 
-export default MainPage;
+export default MainPageMobile;
