@@ -10,10 +10,10 @@ export const MainPageContainer = styled.div`
 `;
 
 export const LoginForm = styled.form`
-  border-radius: 8px;
-  border: 4px solid #b4d4ff;
+  border: 8px solid #b4d4ff;
   height: 100vh;
   width: 100%;
+  box-sizing: border-box;
   background-color: #eef5ff;
   margin-left: auto;
   margin-right: auto;
@@ -57,7 +57,7 @@ export const PassLabel = styled.label`
 export const LoginP = styled.p`
   width: 70%;
   margin: 3% auto 1% auto;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -98,6 +98,8 @@ export const LoginBtn = styled.button`
   border: 1px solid #86b6f6;
   background-color: #b4d4ff;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
 `;
 
 export const SignUpContainer = styled.div`
@@ -118,4 +120,6 @@ export const SignUpBtn = styled.button`
   border: 1px solid #86b6f6;
   background-color: #b4d4ff;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
 `;

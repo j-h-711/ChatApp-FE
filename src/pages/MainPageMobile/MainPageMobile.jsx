@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import socket from "../../server";
-import SignUpModal from "../../components/SignUpModal/SignUpModal";
+import SignUpModalMobile from "../../components/SignUpModalMobile/SignUpModalMobile";
 import {
   MainPageContainer,
   MainPageTitle,
@@ -89,10 +89,10 @@ function MainPageMobile({ setUser, setUserId }) {
             회원가입
           </SignUpBtn>
           {regisModal && (
-            <SignUpModal
+            <SignUpModalMobile
               regisModal={regisModal}
               setRegisModal={setRegisModal}
-            ></SignUpModal>
+            ></SignUpModalMobile>
           )}
         </SignUpContainer>
       </LoginForm>
