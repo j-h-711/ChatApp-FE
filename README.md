@@ -20,10 +20,10 @@ React.js, Node.js, WebSocket 을 사용한 실시간 단체 채팅 회의 시스
 
 ## UI
 
-https://github.com/j-h-711/ChatApp-FE/assets/106228604/b23c45c4-2eb9-4379-8edd-0ae245307708
+![111](https://github.com/j-h-711/ChatApp-FE/assets/106228604/83f646a0-abf2-46dc-8f7d-fb5a62970d50)
 
-https://github.com/j-h-711/ChatApp-FE/assets/106228604/d7fc7048-cd2b-4f5f-a855-ecfbcfb89ac0
+![2222](https://github.com/j-h-711/ChatApp-FE/assets/106228604/64d089ae-9a06-40a8-9bdd-8ec314d40781)
 
-https://github.com/j-h-711/ChatApp-FE/assets/106228604/b2824af9-edce-4bf4-97e9-69f3df6d05ef
+![반응형 모바일 대응 - 룸 리스트](https://github.com/j-h-711/ChatApp-FE/assets/106228604/0129f984-b9a0-4417-b0cd-67d8f79480b9)
 
-https://github.com/j-h-711/ChatApp-FE/assets/106228604/35a609c6-2586-4f13-a935-ee34c385d6ab
+![반응형 모바일 대응 - 채팅방](https://github.com/j-h-711/ChatApp-FE/assets/106228604/ea0389c4-6a99-47e4-ada2-aa1c0ba778bd)
