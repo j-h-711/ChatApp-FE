@@ -27,3 +27,6 @@ React.js, Node.js, WebSocket 을 사용한 실시간 단체 채팅 회의 시스
 ![반응형 모바일 대응 - 룸 리스트](https://github.com/j-h-711/ChatApp-FE/assets/106228604/0129f984-b9a0-4417-b0cd-67d8f79480b9)
 
 ![반응형 모바일 대응 - 채팅방](https://github.com/j-h-711/ChatApp-FE/assets/106228604/ea0389c4-6a99-47e4-ada2-aa1c0ba778bd)
+
+![alert창 커스텀](https://github.com/j-h-711/ChatApp-FE/assets/106228604/d391f08b-675a-4880-9db4-a90f3a8caf57)
+
