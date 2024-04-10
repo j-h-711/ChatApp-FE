@@ -24,7 +24,7 @@ export const SignUpModalWrapper = styled.div`
   border: 10px solid #86b6f6 !important;
 `;
 
-export const SignUpNav = styled.p`
+export const SignUpNav = styled.nav`
   height: 15vh;
   display: flex;
   align-items: center;

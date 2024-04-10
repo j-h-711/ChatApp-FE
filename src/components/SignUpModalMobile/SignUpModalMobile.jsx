@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import socket from "../../server";
+import swal from "sweetalert";
 import {
   SignUpModalContainer,
   SignUpModalWrapper,
@@ -21,6 +22,13 @@ function SignUpModalMobile({ regisModal, setRegisModal }) {
   const regisPasswordRef = useRef(null);
   const checkPasswordRef = useRef(null);
 
+  const successAlert = (msg) => {
+    swal("Success", msg, "success");
+  };
+  const errorAlert = (msg) => {
+    swal("Fail", msg, "error");
+  };
+
   useEffect(() => {}, [regisPassword, checkPassword, regisName]);
 
   // 회원가입
@@ -28,17 +36,17 @@ function SignUpModalMobile({ regisModal, setRegisModal }) {
     e.preventDefault();
 
     if (regisName.length > 10 || regisName.length === 0) {
-      alert("이름은 0에서 10자 이내로 설정해주세요.");
+      errorAlert("이름은 0에서 10자 이내로 설정해주세요.");
       setRegisName("");
       nameInputRef.current.focus();
     } else if (regisPassword.length === 0) {
-      alert("비밀번호를 입력해주세요");
+      errorAlert("비밀번호를 입력해주세요");
       regisPasswordRef.current.focus();
     } else if (checkPassword.length === 0) {
-      alert("비밀번호 확인을 입력해주세요");
+      errorAlert("비밀번호 확인을 입력해주세요");
       checkPasswordRef.current.focus();
     } else if (regisPassword !== checkPassword) {
-      alert("비밀번호와 비밀번호 확인을 동일하게 설정해주세요.");
+      errorAlert("비밀번호와 비밀번호 확인을 동일하게 설정해주세요.");
       setRegisPassword("");
       setCheckPassword("");
     } else {
@@ -46,9 +54,9 @@ function SignUpModalMobile({ regisModal, setRegisModal }) {
         console.log("res : ", res);
         if (res?.ok) {
           setRegisModal(false);
-          alert("회원가입 완료! 로그인을 시도해주세요");
+          successAlert("회원가입 완료! 로그인을 시도해주세요");
         } else {
-          alert("회원가입에 실패했습니다. 다시 시도해주세요.");
+          errorAlert("회원가입에 실패했습니다. 다시 시도해주세요.");
         }
       });
     }

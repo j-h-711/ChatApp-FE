@@ -9,7 +9,7 @@ export const MainPageContainer = styled.div`
   align-items: center;
 `;
 
-export const LoginForm = styled.form`
+export const LoginForm = styled.div`
   border: 8px solid #b4d4ff;
   height: 100vh;
   width: 100%;

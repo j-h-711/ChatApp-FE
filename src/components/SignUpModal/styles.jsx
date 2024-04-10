@@ -16,14 +16,14 @@ export const SignUpModalContainer = styled.div`
 `;
 
 export const SignUpModalWrapper = styled.div`
-  width: 375px;
-  height: 400px;
+  width: 440px;
+  height: 460px;
   background-color: white;
   border-radius: 4px;
   border: 4px solid #86b6f6 !important;
 `;
 
-export const SignUpNav = styled.p`
+export const SignUpNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,6 +40,8 @@ export const SignUpTitle = styled.div`
   display: flex;
   padding-left: 42%;
   color: white;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
 export const SignUpCancelBtn = styled.div`
@@ -62,7 +64,8 @@ export const SignUpLabel = styled.label`
 `;
 
 export const SignUpP = styled.p`
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: bold;
 `;
 
 export const SignUpInput = styled.input`
@@ -95,4 +98,6 @@ export const SignUpBtn = styled.button`
   border: none;
   color: white;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
 `;

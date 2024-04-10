@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import swal from "sweetalert";
 import socket from "../../server";
 import {
   AddRoomModalContainer,
@@ -13,20 +14,29 @@ import {
 
 export const AddRoomModal = ({ setAddRoomState, rooms }) => {
   const [roomName, setRoomName] = useState("");
+  const roomAddAlert = () => {
+    swal("Success", "create this room", "success");
+  };
+  // 로그인 실패시 error alert
+  const errorAlert = () => {
+    swal("Fail add room", "Please check ROOM NAME", "error");
+  };
 
   const addRoomSubmit = () => {
     // 중복 방 찾음
     let isDuplicate = rooms.some((room) => room.room === roomName);
     if (isDuplicate) {
-      alert("이미 해당 회의방이 존재합니다.");
+      // alert("이미 해당 회의방이 존재합니다.");
+      errorAlert();
     } else {
       socket.emit("addRoom", roomName, (res) => {
         console.log("res : ", res);
         if (res?.ok) {
-          alert("신규 방 생성이 완료되었습니다.");
+          roomAddAlert();
+          // alert("신규 방 생성이 완료되었습니다.");
           setAddRoomState(false);
         } else {
-          alert("방 생성에 실패했습니다. 다시 시도해주세요.");
+          errorAlert();
         }
       });
     }

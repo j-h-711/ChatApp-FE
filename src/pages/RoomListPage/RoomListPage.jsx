@@ -16,7 +16,6 @@ import {
 
 const RoomListPage = ({ rooms }) => {
   const navigate = useNavigate();
-
   const [addRoomState, setAddRoomState] = useState(false);
 
   const moveToChat = (rid, roomname) => {
@@ -27,9 +26,10 @@ const RoomListPage = ({ rooms }) => {
     setAddRoomState(true);
   };
 
+  useEffect(() => {}, [rooms]);
+
   return (
     <RoomListContainer>
-
       <RoomWrapper>
         <RoomNav>
           <RoomsTitle>회의실 ▼</RoomsTitle>
@@ -57,7 +57,6 @@ const RoomListPage = ({ rooms }) => {
           ></AddRoomModal>
         )}
       </RoomWrapper>
-      
     </RoomListContainer>
   );
 };

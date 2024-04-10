@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
+import swal from "sweetalert";
 import socket from "../../server";
 import MessageContainer from "../../components/MessageContainer/MessageContainer";
 import InputField from "../../components/InputField/InputField";
@@ -19,6 +20,10 @@ const ChatPage = ({ user, rooms, userId }) => {
   const { id } = useParams();
   const queryParams = new URLSearchParams(location.search);
   const roomname = queryParams.get("roomname");
+
+  const roomDeleteAlert = () => {
+    swal("Success", "delete the room", "success");
+  };
 
   const [messageList, setMessageList] = useState([]);
   const [message, setMessage] = useState("");
@@ -82,7 +87,7 @@ const ChatPage = ({ user, rooms, userId }) => {
     event.preventDefault();
     socket.emit("deleteRoom", roomId, (res) => {
       if (res.ok) {
-        alert("방이 삭제되었습니다.");
+        roomDeleteAlert();
         navigate("/rooms");
       } else {
         console.log("error message", res.error);

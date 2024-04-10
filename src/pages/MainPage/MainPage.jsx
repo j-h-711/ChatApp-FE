@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import socket from "../../server";
@@ -30,6 +31,15 @@ function MainPage({ setUser, setUserId }) {
 
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
+  // 로그인 성공시 notify alert
+  const notifyAlert = (name) => {
+    swal(`Hello ${name}`, "welcome", "success");
+  };
+  // 로그인 실패시 error alert
+  const errorAlert = () => {
+    swal("Fail Login", "Please check your ID & PASSWORD", "error");
+  };
+
   // 로그인
   const handleLogin = (e) => {
     e.preventDefault();
@@ -38,9 +48,10 @@ function MainPage({ setUser, setUserId }) {
       if (res?.ok) {
         setUser(userName);
         setUserId(res.data._id);
+        notifyAlert(userName);
         navigate(`/rooms`);
       } else {
-        alert("로그인에 실패했습니다. 다시 시도해주세요.");
+        errorAlert();
       }
     });
   };
@@ -51,7 +62,7 @@ function MainPage({ setUser, setUserId }) {
 
   return (
     <MainPageContainer>
-      <LoginForm onSubmit={handleLogin}>
+      <LoginForm>
         <MainPageTitle>
           <Title>사내 실시간 회의 시스템</Title>
         </MainPageTitle>
@@ -77,11 +88,14 @@ function MainPage({ setUser, setUserId }) {
         </LoginContainer>
 
         <LoginBtnContainer>
-          <LoginBtn type="submit">로그인</LoginBtn>
+          <LoginBtn type="button" onClick={handleLogin}>
+            로그인
+          </LoginBtn>
         </LoginBtnContainer>
 
         <SignUpContainer>
           <SignUpBtn
+            type="button"
             onClick={() => {
               setRegisModal(true);
             }}
@@ -95,7 +109,6 @@ function MainPage({ setUser, setUserId }) {
             ></SignUpModal>
           )}
         </SignUpContainer>
-        
       </LoginForm>
     </MainPageContainer>
   );
