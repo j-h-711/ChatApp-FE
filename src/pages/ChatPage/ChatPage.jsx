@@ -35,7 +35,7 @@ const ChatPage = ({ user, rooms, userId }) => {
     }
 
     socket.on("message", (res) => {
-      console.log("message", res);
+      // console.log("message", res);
       setMessageList((prevState) => prevState.concat(res));
     });
 
@@ -48,7 +48,7 @@ const ChatPage = ({ user, rooms, userId }) => {
     });
 
     socket.on("messageHistory", (chatHistory) => {
-      console.log("Received chat history:", chatHistory);
+      // console.log("Received chat history:", chatHistory);
       setMessageList(chatHistory); // Set initial chat history
     });
 

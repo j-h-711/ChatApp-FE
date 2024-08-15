@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import socket from "../../server";
 import * as S from "./styles";
 
 export const AddRoomModal = ({ setAddRoomState, rooms }) => {
+  const navigate = useNavigate();
   const [roomName, setRoomName] = useState("");
   const roomAddAlert = () => {
     swal("Success", "create this room", "success");
@@ -12,12 +14,13 @@ export const AddRoomModal = ({ setAddRoomState, rooms }) => {
     swal("Fail add room", "Please check ROOM NAME", "error");
   };
 
-  const addRoomSubmit = () => {
+  const addRoomSubmit = (e) => {
+    e.preventDefault();
     // 중복 방 찾음
     let isDuplicate = rooms.some((room) => room.room === roomName);
     if (isDuplicate) {
       // alert("이미 해당 회의방이 존재합니다.");
-      errorAlert();
+      errorAlert("이미 해당 회의방이 존재합니다.");
     } else {
       socket.emit("addRoom", roomName, (res) => {
         console.log("res : ", res);

@@ -59,7 +59,7 @@ export const MyMessage = styled.div`
   padding: 8px;
   marign-top: 4px;
   margin-bottom: 4px;
-  max-width: 200px;
+  max-width: 300px;
   font-size: 12px;
 `;
 
@@ -74,7 +74,7 @@ export const YourMessage = styled.div`
   background-color: white;
   border-radius: 8px;
   padding: 8px;
-  max-width: 200px;
+  max-width: 300px;
   font-size: 12px;
   height: 16px !important;
   margin: 0px !important;

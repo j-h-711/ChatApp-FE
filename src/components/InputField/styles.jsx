@@ -7,8 +7,9 @@ export const InputContainer = styled.div`
   display: flex;
   position: absolute;
   bottom: 0;
-  height: 8vh;
+  height: 7vh;
   width: 100%;
+  margin-top: 10px;
 `;
 
 export const PlusButton = styled.div`
