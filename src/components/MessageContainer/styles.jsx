@@ -5,6 +5,7 @@ export const MessageWrapper = styled.div`
   width: 100%;
   margin-left: 1rem;
   height: 100%;
+  padding-top: 12px;
   margin: 0 !important;
   height: 63vh;
 

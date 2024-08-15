@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import socket from "../../server";
 import swal from "sweetalert";
+import * as S from "./styles";
 import {
   SignUpModalContainer,
   SignUpModalWrapper,

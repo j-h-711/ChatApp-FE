@@ -1,23 +1,13 @@
 import React, { useState, useEffect } from "react";
 import swal from "sweetalert";
 import socket from "../../server";
-import {
-  AddRoomModalContainer,
-  AddRoomWrapper,
-  AddRoomForm,
-  AddRoomNav,
-  RoomNameInput,
-  InputArea,
-  RoomP,
-  SubmitBtn,
-} from "./styles";
+import * as S from "./styles";
 
 export const AddRoomModal = ({ setAddRoomState, rooms }) => {
   const [roomName, setRoomName] = useState("");
   const roomAddAlert = () => {
     swal("Success", "create this room", "success");
   };
-  // 로그인 실패시 error alert
   const errorAlert = () => {
     swal("Fail add room", "Please check ROOM NAME", "error");
   };
@@ -33,7 +23,6 @@ export const AddRoomModal = ({ setAddRoomState, rooms }) => {
         console.log("res : ", res);
         if (res?.ok) {
           roomAddAlert();
-          // alert("신규 방 생성이 완료되었습니다.");
           setAddRoomState(false);
         } else {
           errorAlert();
@@ -43,24 +32,24 @@ export const AddRoomModal = ({ setAddRoomState, rooms }) => {
   };
 
   return (
-    <AddRoomModalContainer>
-      <AddRoomWrapper>
-        <AddRoomForm onSubmit={addRoomSubmit}>
-          <AddRoomNav>신규 회의방 생성</AddRoomNav>
+    <S.AddRoomModalContainer>
+      <S.AddRoomWrapper>
+        <S.AddRoomForm onSubmit={addRoomSubmit}>
+          <S.AddRoomNav>신규 회의방 생성</S.AddRoomNav>
 
-          <InputArea>
+          <S.InputArea>
             <label>
-              <RoomP>방 이름</RoomP>
-              <RoomNameInput
+              <S.RoomP>방 이름</S.RoomP>
+              <S.RoomNameInput
                 onChange={(e) => setRoomName(e.target.value)}
-              ></RoomNameInput>
+              ></S.RoomNameInput>
             </label>
-          </InputArea>
+          </S.InputArea>
 
-          <SubmitBtn type="submit">방 만들기</SubmitBtn>
-        </AddRoomForm>
-      </AddRoomWrapper>
-    </AddRoomModalContainer>
+          <S.SubmitBtn type="submit">방 만들기</S.SubmitBtn>
+        </S.AddRoomForm>
+      </S.AddRoomWrapper>
+    </S.AddRoomModalContainer>
   );
 };
 

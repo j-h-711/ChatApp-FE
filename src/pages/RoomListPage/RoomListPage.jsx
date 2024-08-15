@@ -2,17 +2,7 @@ import React, { useEffect, useState } from "react";
 import socket from "../../server";
 import { useNavigate } from "react-router-dom";
 import { AddRoomModal } from "../../components/AddRoomModal/AddRoomModal";
-import {
-  RoomListContainer,
-  RoomWrapper,
-  RoomNav,
-  RoomItem,
-  RoomTitle,
-  RoomMember,
-  RoomLists,
-  RoomsTitle,
-  AddRoomBtn,
-} from "./styles";
+import * as S from "./styles";
 
 const RoomListPage = ({ rooms }) => {
   const navigate = useNavigate();
@@ -29,35 +19,35 @@ const RoomListPage = ({ rooms }) => {
   useEffect(() => {}, [rooms]);
 
   return (
-    <RoomListContainer>
-      <RoomWrapper>
-        <RoomNav>
-          <RoomsTitle>회의실 ▼</RoomsTitle>
-          <AddRoomBtn onClick={addRoomHandle}>+</AddRoomBtn>
-        </RoomNav>
-        <RoomLists>
+    <S.RoomListContainer>
+      <S.RoomWrapper>
+        <S.RoomNav>
+          <S.RoomsTitle>회의실 ▼</S.RoomsTitle>
+          <S.AddRoomBtn onClick={addRoomHandle}>+</S.AddRoomBtn>
+        </S.RoomNav>
+        <S.RoomLists>
           {rooms.length > 0 ? (
             rooms.map((room) => (
-              <RoomItem
+              <S.RoomItem
                 key={room._id}
                 onClick={() => moveToChat(room._id, room.room)}
               >
-                <RoomTitle>{room.room}</RoomTitle>
-                <RoomMember>member : {room.members.length}</RoomMember>
-              </RoomItem>
+                <S.RoomTitle>{room.room}</S.RoomTitle>
+                <S.RoomMember>member : {room.members.length}</S.RoomMember>
+              </S.RoomItem>
             ))
           ) : (
             <p>현재 생성된 회의실이 없습니다.</p>
           )}
-        </RoomLists>
+        </S.RoomLists>
         {addRoomState && (
           <AddRoomModal
             setAddRoomState={setAddRoomState}
             rooms={rooms}
           ></AddRoomModal>
         )}
-      </RoomWrapper>
-    </RoomListContainer>
+      </S.RoomWrapper>
+    </S.RoomListContainer>
   );
 };
 

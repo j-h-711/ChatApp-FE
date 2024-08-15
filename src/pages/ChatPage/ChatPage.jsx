@@ -4,15 +4,7 @@ import swal from "sweetalert";
 import socket from "../../server";
 import MessageContainer from "../../components/MessageContainer/MessageContainer";
 import InputField from "../../components/InputField/InputField";
-import {
-  ChatPageContainer,
-  ChatPageNav,
-  LeaveRoomBtn,
-  ChatPageWrapper,
-  RoomName,
-  DeleteRoomBtn,
-  LeaveAndRoomname,
-} from "./styles";
+import * as S from "./styles";
 
 const ChatPage = ({ user, rooms, userId }) => {
   const navigate = useNavigate();
@@ -53,6 +45,11 @@ const ChatPage = ({ user, rooms, userId }) => {
       } else {
         console.log("fail to join", res);
       }
+    });
+
+    socket.on("messageHistory", (chatHistory) => {
+      console.log("Received chat history:", chatHistory);
+      setMessageList(chatHistory); // Set initial chat history
     });
 
     const unblock = () => {
@@ -96,17 +93,17 @@ const ChatPage = ({ user, rooms, userId }) => {
   };
 
   return (
-    <ChatPageContainer>
-      <ChatPageWrapper>
-        <ChatPageNav>
-          <LeaveAndRoomname>
-            <LeaveRoomBtn onClick={leaveRoom}>←</LeaveRoomBtn>
-            <RoomName>{roomname}</RoomName>
-          </LeaveAndRoomname>
+    <S.ChatPageContainer>
+      <S.ChatPageWrapper>
+        <S.ChatPageNav>
+          <S.LeaveAndRoomname>
+            <S.LeaveRoomBtn onClick={leaveRoom}>←</S.LeaveRoomBtn>
+            <S.RoomName>{roomname}</S.RoomName>
+          </S.LeaveAndRoomname>
           {userId === hostId && (
-            <DeleteRoomBtn onClick={deleteRoom}>Del</DeleteRoomBtn>
+            <S.DeleteRoomBtn onClick={deleteRoom}>Del</S.DeleteRoomBtn>
           )}
-        </ChatPageNav>
+        </S.ChatPageNav>
 
         {messageList.length > 0 ? (
           <MessageContainer messageList={messageList} user={user} />
@@ -116,8 +113,8 @@ const ChatPage = ({ user, rooms, userId }) => {
           setMessage={setMessage}
           sendMessage={sendMessage}
         />
-      </ChatPageWrapper>
-    </ChatPageContainer>
+      </S.ChatPageWrapper>
+    </S.ChatPageContainer>
   );
 };
 

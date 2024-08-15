@@ -52,10 +52,10 @@ export const LoginContainer = styled.div`
 `;
 
 export const NameLabel = styled.label`
-  height: 40%;
+  height: 50%;
 `;
 export const PassLabel = styled.label`
-  height: 40%;
+  height: 50%;
 `;
 
 export const LoginP = styled.p`
@@ -68,7 +68,7 @@ export const LoginP = styled.p`
 
 export const LoginInput = styled.input`
   width: 70%;
-  height: 24px;
+  height: 30px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 4px;
@@ -80,7 +80,7 @@ export const LoginInput = styled.input`
     outline: none;
     border: 2px solid #86b6f6;
   }
-  font-size: 14px;
+  font-size: 18px;
 `;
 
 export const LoginBtnContainer = styled.div`

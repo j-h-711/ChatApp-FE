@@ -1,18 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import swal from "sweetalert";
 import socket from "../../server";
-import {
-  SignUpModalContainer,
-  SignUpModalWrapper,
-  SignUpForm,
-  SignUpNav,
-  SignUpLabel,
-  SignUpInput,
-  SignUpP,
-  SignUpBtn,
-  SignUpTitle,
-  SignUpCancelBtn,
-} from "./styles";
+import * as S from "./styles";
 
 function SignUpModal({ regisModal, setRegisModal }) {
   const [regisName, setRegisName] = useState("");
@@ -67,46 +56,46 @@ function SignUpModal({ regisModal, setRegisModal }) {
   };
 
   return (
-    <SignUpModalContainer>
-      <SignUpModalWrapper>
-        <SignUpNav>
-          <SignUpTitle>회원가입</SignUpTitle>
-          <SignUpCancelBtn onClick={closeModal}>X</SignUpCancelBtn>
-        </SignUpNav>
-        <SignUpForm onSubmit={handleRegister}>
-          <SignUpLabel>
-            <SignUpP>이름</SignUpP>
-            <SignUpInput
+    <S.SignUpModalContainer>
+      <S.SignUpModalWrapper>
+        <S.SignUpNav>
+          <S.SignUpTitle>회원가입</S.SignUpTitle>
+          <S.SignUpCancelBtn onClick={closeModal}>X</S.SignUpCancelBtn>
+        </S.SignUpNav>
+        <S.SignUpForm onSubmit={handleRegister}>
+          <S.SignUpLabel>
+            <S.SignUpP>이름</S.SignUpP>
+            <S.SignUpInput
               type="text"
               ref={nameInputRef}
               value={regisName}
               placeholder="0~10자 이내로 입력해주세요..."
               onChange={(e) => setRegisName(e.target.value)}
             />
-          </SignUpLabel>
-          <SignUpLabel>
-            <SignUpP>비밀번호</SignUpP>
-            <SignUpInput
+          </S.SignUpLabel>
+          <S.SignUpLabel>
+            <S.SignUpP>비밀번호</S.SignUpP>
+            <S.SignUpInput
               type="password"
               ref={regisPasswordRef}
               value={regisPassword}
               placeholder="비밀번호 입력..."
               onChange={(e) => setRegisPassword(e.target.value)}
             />
-          </SignUpLabel>
-          <SignUpLabel>
-            <SignUpInput
+          </S.SignUpLabel>
+          <S.SignUpLabel>
+            <S.SignUpInput
               type="password"
               ref={checkPasswordRef}
               value={checkPassword}
               placeholder="비밀번호 확인..."
               onChange={(e) => setCheckPassword(e.target.value)}
             />
-          </SignUpLabel>
-          <SignUpBtn type="submit">회원가입</SignUpBtn>
-        </SignUpForm>
-      </SignUpModalWrapper>
-    </SignUpModalContainer>
+          </S.SignUpLabel>
+          <S.SignUpBtn type="submit">회원가입</S.SignUpBtn>
+        </S.SignUpForm>
+      </S.SignUpModalWrapper>
+    </S.SignUpModalContainer>
   );
 }
 

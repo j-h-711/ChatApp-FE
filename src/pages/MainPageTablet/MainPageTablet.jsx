@@ -4,21 +4,7 @@ import swal from "sweetalert";
 import { useMediaQuery } from "react-responsive";
 import socket from "../../server";
 import SignUpModal from "../../components/SignUpModal/SignUpModal";
-import {
-  MainPageContainer,
-  MainPageTitle,
-  LoginForm,
-  NameLabel,
-  PassLabel,
-  LoginInput,
-  LoginP,
-  LoginBtn,
-  SignUpBtn,
-  Title,
-  SignUpContainer,
-  LoginBtnContainer,
-  LoginContainer,
-} from "./styles";
+import * as S from "./styles";
 
 function MainPageTablet({ setUser, setUserId }) {
   const navigate = useNavigate();
@@ -59,56 +45,56 @@ function MainPageTablet({ setUser, setUserId }) {
   };
 
   return (
-    <MainPageContainer>
-      <LoginForm>
-        <MainPageTitle>
-          <Title>사내 실시간 회의 시스템</Title>
-        </MainPageTitle>
+    <S.MainPageContainer>
+      <S.LoginForm>
+        <S.MainPageTitle>
+          <S.Title>사내 실시간 회의 시스템</S.Title>
+        </S.MainPageTitle>
 
-        <LoginContainer>
-          <NameLabel>
-            <LoginP>이름</LoginP>
-            <LoginInput
+        <S.LoginContainer>
+          <S.NameLabel>
+            <S.LoginP>이름</S.LoginP>
+            <S.LoginInput
               type="text"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
             />
-          </NameLabel>
+          </S.NameLabel>
 
-          <PassLabel>
-            <LoginP>비밀번호</LoginP>
-            <LoginInput
+          <S.PassLabel>
+            <S.LoginP>비밀번호</S.LoginP>
+            <S.LoginInput
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-          </PassLabel>
-        </LoginContainer>
+          </S.PassLabel>
+        </S.LoginContainer>
 
-        <LoginBtnContainer>
-          <LoginBtn type="button" onClick={handleLogin}>
+        <S.LoginBtnContainer>
+          <S.LoginBtn type="button" onClick={handleLogin}>
             로그인
-          </LoginBtn>
-        </LoginBtnContainer>
+          </S.LoginBtn>
+        </S.LoginBtnContainer>
 
-        <SignUpContainer>
-          <SignUpBtn
+        <S.SignUpContainer>
+          <S.SignUpBtn
             type="button"
             onClick={() => {
               setRegisModal(true);
             }}
           >
             회원가입
-          </SignUpBtn>
+          </S.SignUpBtn>
           {regisModal && (
             <SignUpModal
               regisModal={regisModal}
               setRegisModal={setRegisModal}
             ></SignUpModal>
           )}
-        </SignUpContainer>
-      </LoginForm>
-    </MainPageContainer>
+        </S.SignUpContainer>
+      </S.LoginForm>
+    </S.MainPageContainer>
   );
 }
 

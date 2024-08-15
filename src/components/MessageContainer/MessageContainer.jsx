@@ -1,17 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-  MessageWrapper,
-  MessageAreaContainer,
-  SystemMessageContainer,
-  SystemMessage,
-  MyMessageContainer,
-  YourMessageContainer,
-  ProfileImage,
-  YourMessage,
-  MyMessage,
-  UserName,
-  UserContainer,
-} from "./styles";
+import * as S from "./styles";
 
 export const MessageContainer = ({ messageList, user }) => {
   const messageEndRef = useRef(null);
@@ -25,22 +13,22 @@ export const MessageContainer = ({ messageList, user }) => {
   };
 
   return (
-    <MessageWrapper>
+    <S.MessageWrapper>
       {messageList.map((message, index) => {
         const uniqueKey = message._id || index;
         return (
-          <MessageAreaContainer key={uniqueKey}>
+          <S.MessageAreaContainer key={uniqueKey}>
             {message.user.name === "system" ? (
-              <SystemMessageContainer>
-                <SystemMessage>{message.chat}</SystemMessage>
-              </SystemMessageContainer>
+              <S.SystemMessageContainer>
+                <S.SystemMessage>{message.chat}</S.SystemMessage>
+              </S.SystemMessageContainer>
             ) : message.user.name === user ? (
-              <MyMessageContainer>
-                <MyMessage>{message.chat}</MyMessage>
-              </MyMessageContainer>
+              <S.MyMessageContainer>
+                <S.MyMessage>{message.chat}</S.MyMessage>
+              </S.MyMessageContainer>
             ) : (
-              <YourMessageContainer>
-                <UserContainer
+              <S.YourMessageContainer>
+                <S.UserContainer
                   style={
                     (index === 0
                       ? { visibility: "visible" }
@@ -50,20 +38,20 @@ export const MessageContainer = ({ messageList, user }) => {
                       : { visibility: "hidden" }
                   }
                 >
-                  <ProfileImage src="/profile.jpeg" />
-                  <UserName style={{ fontSize: "12px", marginRight: "8px" }}>
+                  <S.ProfileImage src="/profile.jpeg" />
+                  <S.UserName style={{ fontSize: "12px", marginRight: "8px" }}>
                     {message.user.name}
-                  </UserName>
-                </UserContainer>
+                  </S.UserName>
+                </S.UserContainer>
 
-                <YourMessage>{message.chat}</YourMessage>
-              </YourMessageContainer>
+                <S.YourMessage>{message.chat}</S.YourMessage>
+              </S.YourMessageContainer>
             )}
-          </MessageAreaContainer>
+          </S.MessageAreaContainer>
         );
       })}
       <div ref={messageEndRef}></div>
-    </MessageWrapper>
+    </S.MessageWrapper>
   );
 };
 

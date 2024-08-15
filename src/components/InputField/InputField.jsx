@@ -1,29 +1,23 @@
 import React from "react";
-import {
-  InputContainer,
-  PlusButton,
-  InputForm,
-  InputArea,
-  SendButton,
-} from "./styles";
+import * as S from "./styles";
 
 export const InputField = ({ message, setMessage, sendMessage }) => {
   return (
-    <InputContainer>
-      <PlusButton>+</PlusButton>
+    <S.InputContainer>
+      <S.PlusButton>+</S.PlusButton>
 
-      <InputForm onSubmit={sendMessage}>
-        <InputArea
+      <S.InputForm onSubmit={sendMessage}>
+        <S.InputArea
           placeholder="Type in here…"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           rows={1}
         />
-        <SendButton disabled={message === ""} type="submit">
+        <S.SendButton disabled={message === ""} type="submit">
           전송
-        </SendButton>
-      </InputForm>
-    </InputContainer>
+        </S.SendButton>
+      </S.InputForm>
+    </S.InputContainer>
   );
 };
 
