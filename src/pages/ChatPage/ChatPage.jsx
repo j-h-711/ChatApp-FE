@@ -45,10 +45,11 @@ const ChatPage = ({ user, rooms, userId }) => {
       } else {
         console.log("fail to join", res);
       }
+      console.log(res);
     });
 
     socket.on("messageHistory", (chatHistory) => {
-      // console.log("Received chat history:", chatHistory);
+      console.log("Received chat history:", chatHistory);
       setMessageList(chatHistory); // Set initial chat history
     });
 
@@ -62,6 +63,7 @@ const ChatPage = ({ user, rooms, userId }) => {
     return () => window.removeEventListener("popstate", unblock);
   }, []);
 
+  // 메시지 발신
   const sendMessage = (event) => {
     event.preventDefault();
 
@@ -73,6 +75,7 @@ const ChatPage = ({ user, rooms, userId }) => {
     });
   };
 
+  // 방 나가기
   const leaveRoom = (event) => {
     event.preventDefault();
     socket.emit("leaveRoom", user, (res) => {
@@ -80,6 +83,7 @@ const ChatPage = ({ user, rooms, userId }) => {
     });
   };
 
+  // 방 삭제
   const deleteRoom = (event) => {
     event.preventDefault();
     socket.emit("deleteRoom", roomId, (res) => {
@@ -108,6 +112,7 @@ const ChatPage = ({ user, rooms, userId }) => {
         {messageList.length > 0 ? (
           <MessageContainer messageList={messageList} user={user} />
         ) : null}
+
         <InputField
           message={message}
           setMessage={setMessage}

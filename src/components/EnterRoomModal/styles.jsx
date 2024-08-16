@@ -16,14 +16,14 @@ export const AddRoomModalContainer = styled.div`
 
 export const AddRoomWrapper = styled.div`
   width: 30%;
-  height: 60%;
+  height: 40%;
   background-color: white;
   border: 3px solid #86b6f6 !important;
   border-radius: 4px;
 
   @media screen and (max-width: 768px) {
     width: 100%;
-    height: 50%;
+    height: 40%;
   }
 `;
 
@@ -91,4 +91,5 @@ export const SubmitBtn = styled.button`
   background-color: #b4d4ff;
   border: none;
   color: white;
+  cursor: pointer;
 `;
