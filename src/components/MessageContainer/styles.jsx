@@ -5,9 +5,9 @@ export const MessageWrapper = styled.div`
   width: 100%;
   margin-left: 1rem;
   height: 100%;
-  padding-top: 12px;
+  padding-top: 8px;
   margin: 0 !important;
-  height: 63vh;
+  height: 64vh;
 
   @media screen and (max-width: 768px) {
     height: 84vh;
@@ -16,6 +16,12 @@ export const MessageWrapper = styled.div`
   overflow-y: auto;
 `;
 export const MessageAreaContainer = styled.div``;
+
+export const EmptyUserContainer = styled.div`
+  width: 10%;
+  max-width: 40px;
+  height: 24px;
+`;
 
 export const SystemMessageContainer = styled.div`
   display: flex;
@@ -30,6 +36,8 @@ export const SystemMessage = styled.p`
   color: white;
   padding: 2px 15px;
   font-size: 14px;
+
+  margin: 8px !important;
 `;
 
 export const UserName = styled.p`
@@ -47,9 +55,18 @@ export const MyMessageContainer = styled.div`
 export const UserContainer = styled.div`
   margin: 0px;
   display: flex;
+  width: 10%;
+  max-width: 40px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const YourMessageContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 1%;
 `;
 
 export const MyMessage = styled.div`
@@ -63,21 +80,15 @@ export const MyMessage = styled.div`
   font-size: 12px;
 `;
 
-export const YourMessageContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 1%;
-`;
-
 export const YourMessage = styled.div`
   background-color: white;
+  color: black;
   border-radius: 8px;
   padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
   max-width: 300px;
   font-size: 12px;
-  height: 16px !important;
-  margin: 0px !important;
 `;
 
 export const ProfileImage = styled.img`

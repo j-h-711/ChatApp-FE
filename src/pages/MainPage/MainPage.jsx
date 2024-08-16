@@ -42,6 +42,7 @@ function MainPage({ setUser, setUserId }) {
     });
   };
 
+  // 회원가입 모달 닫기
   const closeModal = () => {
     setRegisModal(false);
   };
