@@ -18,6 +18,9 @@ export const AddRoomModal = ({ setAddRoomState, rooms }) => {
 
   const addRoomSubmit = (e) => {
     e.preventDefault();
+
+    console.log("Room Name:", roomName);
+    console.log("Room Password:", roomPassword);
     // 중복 방 찾음
     let isDuplicate = rooms.some((room) => room.room === roomName);
     if (isDuplicate) {
@@ -35,7 +38,7 @@ export const AddRoomModal = ({ setAddRoomState, rooms }) => {
           roomAddAlert(roomName);
           setAddRoomState(false);
         } else {
-          errorAlert();
+          errorAlert("방 추가 실패");
         }
       });
     }
