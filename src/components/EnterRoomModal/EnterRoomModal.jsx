@@ -13,6 +13,10 @@ export const EnterRoomModal = ({
   const navigate = useNavigate();
   const [roomPassword, setRoomPassword] = useState("");
 
+  const closeEnterRoomModal = () => {
+    setEnterRoomState(false);
+  };
+
   const enterRoomSubmit = (e) => {
     e.preventDefault();
 
@@ -28,10 +32,13 @@ export const EnterRoomModal = ({
   };
 
   return (
-    <S.AddRoomModalContainer>
-      <S.AddRoomWrapper>
-        <S.AddRoomForm onSubmit={enterRoomSubmit}>
-          <S.AddRoomNav>입장 비밀번호 확인</S.AddRoomNav>
+    <S.EnterRoomModalContainer>
+      <S.EnterRoomWrapper>
+        <S.EnterRoomForm onSubmit={enterRoomSubmit}>
+          <S.EnterRoomNav>
+            <S.EnterRoomNavP>입장 비밀번호 입력</S.EnterRoomNavP>
+            <S.BackButton onClick={closeEnterRoomModal}>X</S.BackButton>
+          </S.EnterRoomNav>
 
           <S.InputArea>
             <S.InputPassArea>
@@ -45,9 +52,9 @@ export const EnterRoomModal = ({
           </S.InputArea>
 
           <S.SubmitBtn type="submit">회의실 입장하기</S.SubmitBtn>
-        </S.AddRoomForm>
-      </S.AddRoomWrapper>
-    </S.AddRoomModalContainer>
+        </S.EnterRoomForm>
+      </S.EnterRoomWrapper>
+    </S.EnterRoomModalContainer>
   );
 };
 

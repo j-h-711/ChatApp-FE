@@ -16,6 +16,10 @@ export const AddRoomModal = ({ setAddRoomState, rooms }) => {
     swal("Fail add room", msg, "error");
   };
 
+  const closeAddRoomModal = () => {
+    setAddRoomState(false);
+  };
+
   const addRoomSubmit = (e) => {
     e.preventDefault();
 
@@ -48,7 +52,10 @@ export const AddRoomModal = ({ setAddRoomState, rooms }) => {
     <S.AddRoomModalContainer>
       <S.AddRoomWrapper>
         <S.AddRoomForm onSubmit={addRoomSubmit}>
-          <S.AddRoomNav>신규 회의방 생성</S.AddRoomNav>
+          <S.AddRoomNav>
+            <S.AddRoomNavP>신규 방 생성</S.AddRoomNavP>
+            <S.BackButton onClick={closeAddRoomModal}>X</S.BackButton>
+          </S.AddRoomNav>
 
           <S.InputArea>
             <S.InputNameArea>

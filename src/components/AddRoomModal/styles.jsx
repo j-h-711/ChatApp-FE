@@ -37,12 +37,23 @@ export const AddRoomForm = styled.form`
 export const AddRoomNav = styled.div`
   width: 100%;
   height: 20%;
-  border-bottom: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #b4d4ff;
   border: none;
+  position: relative;
+`;
+
+export const AddRoomNavP = styled.p`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
+export const BackButton = styled.button`
+  position: absolute;
+  right: 10%;
 `;
 
 export const InputArea = styled.div`

@@ -6,6 +6,7 @@ import ChatPage from "./pages/ChatPage/ChatPage";
 import RoomListPage from "./pages/RoomListPage/RoomListPage";
 import MainPage from "./pages/MainPage/MainPage";
 import MainPageMobile from "./pages/MainPageMobile/MainPageMobile";
+import MainPageTablet from "./pages/MainPageTablet/MainPageTablet";
 import "./App.css";
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
         {isTablet && (
           <Route
             path="/"
-            element={<MainPage setUser={setUser} setUserId={setUserId} />}
+            element={<MainPageTablet setUser={setUser} setUserId={setUserId} />}
           />
         )}
         {isMobile && (

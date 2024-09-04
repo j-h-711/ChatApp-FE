@@ -12,8 +12,8 @@ export const MainPageContainer = styled.div`
 export const LoginForm = styled.div`
   border-radius: 8px;
   border: 4px solid #b4d4ff;
-  height: 40%;
-  width: 40%;
+  height: 70%;
+  width: 60%;
   background-color: #eef5ff;
   margin-left: auto;
   margin-right: auto;
